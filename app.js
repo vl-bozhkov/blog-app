@@ -30,7 +30,7 @@ var Blog = mongoose.model('Blog', blogSchema);
 app.get('/', function(req, res) {
   res.redirect('/blogs');
 });
-
+//INDEX ROUTE
 app.get('/blogs', function(req, res) {
   Blog.find({}, function(e, blogs) {
     if (e) {
@@ -40,7 +40,22 @@ app.get('/blogs', function(req, res) {
     }
   });
 });
+//NEW ROUTE
+app.get('/blogs/new', function(req, res) {
+  res.render('new');
+});
+
+//CREATE ROUTE
+app.post('/blogs', function(req, res) {
+  Blog.create(req.body.blog, function(e, newBlog) {
+    if (e) {
+      res.render('new');
+    } else {
+      res.redirect('/');
+    }
+  });
+});
 //set up server to run at port 3000
-app.listen(3002, function() {
+app.listen(3000, function() {
   console.log('server listen on port 30000');
 });
