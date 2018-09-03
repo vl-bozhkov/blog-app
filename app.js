@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var port = 3012;
 
 //connect to database
 var uri = 'mongodb://vl_bozhkov:12345678@ds151702.mlab.com:51702/main_database';
@@ -55,7 +56,17 @@ app.post('/blogs', function(req, res) {
     }
   });
 });
+//SHOW ROUTE
+app.get('/blogs/:id', function(req, res) {
+  Blog.findById(req.params.id, function(e, foundBlog) {
+    if (e) {
+      console.log(e);
+    } else {
+      res.render('show', { blog: foundBlog });
+    }
+  });
+});
 //set up server to run at port 3000
-app.listen(3000, function() {
-  console.log('server listen on port 30000');
+app.listen(port, function() {
+  console.log('server listen on port = ', port);
 });
