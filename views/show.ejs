@@ -1,8 +1,27 @@
-<h1>SHOW ROUTE</h1>
-<div>
-    <h2><%=blog.title%></h2>
-    <img src="<%=blog.image%>">
-    <span><%=blog.created.toDateString()%></span>
-    <p><%=blog.body%></p>
-    
-</div>
+<% include ./partials/header %>
+
+
+    <div class="card mx-auto mt-3" style="width:98%; ">
+        <img class="rounded img-fluid  card-img-top" src="<%=blog.image%>/1200x300" alt="Card image cap">
+        <div class="card-body">
+            <h2 class="card-title"><%=blog.title%></h2>
+            
+            <p class="card-text" ><%=blog.body%></p>
+            <div>
+            <p class="badge badge-light"><%=blog.created.toDateString()%></p>
+            </div>
+            <a class="btn btn-primary mr-2"  href="/blogs/<%=blog._id%>/edit">Edit</a>
+            <form class="d-inline" action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">DELETE</button>
+              
+            </form>
+          
+            
+            </div>
+         
+    </div>
+    <div class="mb-5 invisible">1</div>
+      
+
+
+    <% include ./partials/footer %>

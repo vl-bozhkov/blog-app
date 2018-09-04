@@ -1,13 +1,27 @@
 <% include ./partials/header %>
-<div>
-<h1>Hello from new route</h1>
-<form action="/blogs" method="POST">
-    <input type="text" name="blog[title]" placeholder="title" required>
-    <input type="text" name="blog[image]" placeholder="image" required>
-    <input type="text" name="blog[body]" placeholder="blog post goes here" required>
-    <input type="submit"  value="Submit">
-</form>
-</div>
 
+
+
+
+<div class="container">
+  <h1 class="display-4 text-center mt-5 mb-4">New Blog</h1>
+  <form action="/blogs" method="POST">
+    <div class="form-group ">
+      <label for="title">Blog Title</label>
+
+      <input type="text" name="blog[title]" placeholder="title" required class="form-control" id="title">
+    
+    </div>
+    <div class="form-group ">
+      <label for="image">Blog Image</label>
+      <input type="text" name="blog[image]" placeholder="image" required class="form-control" id="image">  
+    </div>
+    <div class="form-group ">
+    <label for="body">Blog Body</label>
+    <textarea name="blog[body]" class="form-control" id="body" rows="3" required placeholder="blog post goes here"></textarea>
+    </div>
+    <button type="submit" class="btn btn-light">Submit</button>
+  </form>
+</div>
 
 <% include ./partials/footer %>
