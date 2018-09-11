@@ -9,8 +9,7 @@ var expressSanitizer = require('express-sanitizer');
 // var port = 3000;
 
 //connect to database
-// var uri = process.env.DATABASE_URI;
-var uri = 'mongodb://vl_bozhkov:12345678@ds151702.mlab.com:51702/main_database';
+var uri = process.env.DATABASE_URI;
 
 mongoose.connect(
   uri,
@@ -113,4 +112,6 @@ app.delete('/blogs/:id', function(req, res) {
 });
 
 //set up server to run at port 3000
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000, function() {
+  console.log('APP LISTEN ON PORT 5000');
+});
