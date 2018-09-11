@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var expressSanitizer = require('express-sanitizer');
-var port = 3000;
+// var port = 3000;
 
 //connect to database
 // var uri = process.env.DATABASE_URI;
@@ -113,6 +113,4 @@ app.delete('/blogs/:id', function(req, res) {
 });
 
 //set up server to run at port 3000
-// app.listen(port, function() {
-//   console.log('server listen on port = ', port);
-// });
+app.listen(process.env.PORT || 5000);
