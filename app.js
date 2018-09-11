@@ -1,14 +1,16 @@
 //basic config
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var expressSanitizer = require('express-sanitizer');
-var port = 3001;
+var port = process.env.PORT || 3000;
 
 //connect to database
-var uri = 'mongodb://vl_bozhkov:12345678@ds151702.mlab.com:51702/main_database';
+var uri = process.env.DATABASE_URI;
+
 mongoose.connect(
   uri,
   { useNewUrlParser: true }
