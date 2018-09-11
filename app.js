@@ -6,10 +6,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var expressSanitizer = require('express-sanitizer');
-var port = process.env.PORT || 3000;
+var port = 3000;
 
 //connect to database
-var uri = process.env.DATABASE_URI;
+// var uri = process.env.DATABASE_URI;
+var uri = 'mongodb://vl_bozhkov:12345678@ds151702.mlab.com:51702/main_database';
 
 mongoose.connect(
   uri,
@@ -112,6 +113,6 @@ app.delete('/blogs/:id', function(req, res) {
 });
 
 //set up server to run at port 3000
-app.listen(port, function() {
-  console.log('server listen on port = ', port);
-});
+// app.listen(port, function() {
+//   console.log('server listen on port = ', port);
+// });
